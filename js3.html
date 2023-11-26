@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dog Names List</title>
+</head>
+<body>
+
+    <form id="dogNamesForm">
+        <label for="dog1">Enter the name of dog 1:</label>
+        <input type="text" class="dogInput" id="dog1" required><br>
+
+        <label for="dog2">Enter the name of dog 2:</label>
+        <input type="text" class="dogInput" id="dog2" required><br>
+
+        <label for="dog3">Enter the name of dog 3:</label>
+        <input type="text" class="dogInput" id="dog3" required><br>
+
+        <label for="dog4">Enter the name of dog 4:</label>
+        <input type="text" class="dogInput" id="dog4" required><br>
+
+        <label for="dog5">Enter the name of dog 5:</label>
+        <input type="text" class="dogInput" id="dog5" required><br>
+
+        <label for="dog6">Enter the name of dog 6:</label>
+        <input type="text" class="dogInput" id="dog6" required><br>
+
+        <button type="button" onclick="printDogNames()">Print Dog Names</button>
+    </form>
+
+    <ul id="dogNamesList"></ul>
+
+    <script>
+        function printDogNames() {
+            var dogNames = [];
+
+            // gets dogs names 6 times
+            for (var i = 1; i <= 6; i++) {
+                var inputId = "dog" + i;
+                var dogName = document.querySelector(".dogInput#" + inputId).value;
+                dogNames.push(dogName);
+            }
+
+            // sorts the names in reverse alphabetical order
+            dogNames.sort(function(a, b) {
+                return b.localeCompare(a);
+            });
+
+            // prints names in ul
+            var dogNamesList = document.getElementById("dogNamesList");
+            dogNamesList.innerHTML = dogNames.map(name => "<li>" + name + "</li>").join("");
+        }
+    </script>
+
+</body>
+</html>
+

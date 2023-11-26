@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voting Program</title>
+</head>
+<body>
+
+    <h1>Check Console for results!</h1>
+
+    <script>
+        // function to compare candidates based on votes
+        function compareCandidates(a, b) {
+            return b.votes - a.votes;
+        }
+
+        // function to run the voting program
+        function runVotingProgram() {
+            var numCandidates = parseInt(prompt("Enter the number of candidates:"));
+
+            var candidates = [];
+            for (var i = 1; i <= numCandidates; i++) {
+                var candidateName = prompt("Name for candidate " + i);
+                candidates.push({
+                    name: candidateName,
+                    votes: 0,
+                });
+            }
+
+            // promt for the number of voters
+            var numVoters = parseInt(prompt("Enter the number of voters:"));
+
+            // voting
+            for (var j = 0; j < numVoters; j++) {
+                var vote = prompt("Voter " + (j + 1) + ", enter your vote (press Enter for an empty vote):");
+
+                // finds the candidate and increments their votes
+                var selectedCandidate = candidates.find(candidate => candidate.name === vote);
+                if (selectedCandidate) {
+                    selectedCandidate.votes++;
+                }
+            }
+
+            // sorts candidates based on votes
+            candidates.sort(compareCandidates);
+
+            // winner/result printer
+            console.log("The winner is " + candidates[0].name + " with " + candidates[0].votes + " votes. Congrats!!");
+            console.log("Results:");
+            candidates.forEach(candidate => {
+                console.log(candidate.name + ": " + candidate.votes + " votes");
+            });
+        }
+
+        runVotingProgram();
+    </script>
+
+</body>
+</html>

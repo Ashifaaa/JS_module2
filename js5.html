@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Check and Sorting</title>
+</head>
+<body>
+
+    <h2>Check Console</h2>
+
+    <script>
+        var numbers = [];
+
+        while (true) {
+            var userInput = prompt("Enter a number (numbers can't be repeated):");
+            var number = parseFloat(userInput);
+
+            if (isNaN(number)) {
+                alert("Invalid input. Please enter a valid number.");
+            } else {
+                if (numbers.includes(number)) {
+                    alert("Number already exists!! Stopping operation!!");
+                    break;  // exits the loop if the user enters a previously entered number
+                }
+                numbers.push(number);
+            }
+        }
+
+        // sorts in ascending order
+        numbers.sort(function(a, b) {
+            return a - b;
+        });
+
+        numbers.forEach(function(number) {
+            console.log(number);
+        });
+    </script>
+
+</body>
+</html>

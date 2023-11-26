@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Participants List</title>
+</head>
+<body>
+
+    <form id="participantsForm">
+        <label for="numParticipants">Enter the number of participants:</label>
+        <input type="text" id="numParticipants" required>
+        <br>
+
+        <button type="button" onclick="getParticipantNames()">Enter Names</button>
+    </form>
+
+    <ol id="participantsList"></ol>
+
+    <script>
+        function getParticipantNames() {
+            var numParticipants = parseInt(document.getElementById("numParticipants").value);
+
+            // checks if the input is valid
+            if (!isNaN(numParticipants) && numParticipants > 0) {
+                var participantNames = [];
+
+                // promts the user for participant names
+                for (var i = 0; i < numParticipants; i++) {
+                    var participantName = prompt("Name of participant " + (i + 1) + ":");
+                    participantNames.push(participantName);
+                }
+
+                // sorts the names alphabetically
+                participantNames.sort();
+
+                // displays the names in an ordered list
+                var participantsList = document.getElementById("participantsList");
+                participantsList.innerHTML = participantNames.map(name => "<li>" + name + "</li>").join("");
+            } else {
+                alert("Please enter a valid number of participants greater than 0.");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Even Numbers</title>
+</head>
+<body>
+
+    <h1>Check Console</h1>
+
+    <script>
+        // function to filter even numbers from array
+        function even(numbersArray) {
+            var evenArray = [];
+
+            for (var i = 0; i < numbersArray.length; i++) {
+                if (numbersArray[i] % 2 === 0) {
+                    evenArray.push(numbersArray[i]);
+                }
+            }
+
+            return evenArray;
+        }
+
+        var numbersArray = [2, 7, 4, 69, 20, 13, 11];
+
+        var evenResult = even(numbersArray);
+
+        console.log("Original Array:", numbersArray);
+        console.log("Even Numbers Array:", evenResult);
+    </script>
+
+</body>
+</html>

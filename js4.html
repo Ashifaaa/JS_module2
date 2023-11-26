@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Sorting</title>
+</head>
+<body>
+
+    <h2>Check Console</h2>
+
+    <script>
+        var numbers = [];
+
+        while (true) {
+            var userInput = prompt("Enter a number (enter 0 to end):");
+            var number = parseFloat(userInput);
+
+            if (isNaN(number)) {
+                alert("Invalid input. Please enter a valid number.");
+            } else {
+                if (number === 0) {
+                    break;
+                }
+                numbers.push(number);
+            }
+        }
+
+        // sorts the numbers in descending order
+        numbers.sort(function(a, b) {
+            return b - a;
+        });
+
+        console.log("Numbers from largest to smallest:", numbers);
+    </script>
+
+</body>
+</html>
+

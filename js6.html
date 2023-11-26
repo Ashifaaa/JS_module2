@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Dice Roll</title>
+</head>
+<body>
+
+    <h2>Dice Rolls Until 6: </h2>
+
+    <ul id="diceRollsList"></ul>
+
+    <script>
+        function rollDice() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+
+        // main program
+        var diceRolls = [];
+
+        while (true) {
+            var result = rollDice();
+            diceRolls.push(result);
+
+            if (result === 6) {
+                break; // stops if rolls 6
+            }
+        }
+
+        // displays the results in an unordered list
+        var diceRollsList = document.getElementById("diceRollsList");
+        diceRolls.forEach(function(roll) {
+            var listItem = document.createElement("li");
+            listItem.textContent = "Dice roll result: " + roll;
+            diceRollsList.appendChild(listItem);
+        });
+    </script>
+
+</body>
+</html>

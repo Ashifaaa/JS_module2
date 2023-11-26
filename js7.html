@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modified Dice Roll</title>
+</head>
+<body>
+
+    <h2>Custom Dice Rolls</h2>
+
+    <ul id="diceRollsList"></ul>
+
+    <script>
+        // functipn to return a random dice roll between 1 and the input number of sides
+        function rollDice(sides) {
+            return Math.floor(Math.random() * sides) + 1;
+        }
+
+        // main program to roll the dice until the maximum number is reached
+        var maxNumber = parseInt(prompt("Enter the maximum number on the dice:"));
+        var diceRolls = [];
+        var diceRollsList = document.getElementById("diceRollsList");
+
+        while (true) {
+            var result = rollDice(maxNumber);
+            diceRolls.push(result);
+
+            // displays the result of each roll in the unordered list
+            var listItem = document.createElement("li");
+            listItem.textContent = "Dice roll result: " + result;
+            diceRollsList.appendChild(listItem);
+
+            if (result === maxNumber) {
+                break;  // Exit the loop if the result is the maximum number
+            }
+        }
+    </script>
+
+</body>
+</html>
